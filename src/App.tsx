@@ -5,6 +5,37 @@ import "./App.css";
 function App() {
   const [count, setCount] = useState(0);
 
+  const getKey = (str: string): string => {
+    const arr = Array(26).fill(0);
+
+    for (let c of str) {
+      arr[c.charCodeAt(0) - "a".charCodeAt(0)] += 1;
+    }
+
+    return arr.join(",");
+  };
+
+    const ans: { string[] } = {};
+  const strs = ["cbt", "htns", "tbc"];
+
+  for(let str of strs) {
+          const key: string = getKey(str);
+            ans[key] = str;
+      }
+
+  const str1 = "cbt";
+  const str2 = "htns";
+  const str3 = "tbc";
+
+  console.log(
+    "str1:",
+    getKey(str1),
+    "\nstr2:",
+    getKey(str2),
+    "\nstr3:",
+    getKey(str3)
+  );
+
   return (
     <div className="App">
       <div>
